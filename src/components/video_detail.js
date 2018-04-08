@@ -1,9 +1,13 @@
 import React from 'react';
-import { Embed, Header, Segment } from 'semantic-ui-react';
+import { Embed, Header, Segment, Dimmer, Loader } from 'semantic-ui-react';
 
 const VideoDetail = ({video}) => {
   if(!video) {
-    return <div>Loading</div>;
+    return (
+      <Dimmer active inverted>
+        <Loader inverted content='Loading' />
+      </Dimmer>
+    )
   }
 
   const videoId = video.id.videoId;
