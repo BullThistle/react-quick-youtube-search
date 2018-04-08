@@ -1,21 +1,23 @@
 import React from 'react';
-import { List, Image, Header } from 'semantic-ui-react';
+import { List, Image } from 'semantic-ui-react';
 
-const VideoListItem = ({video}) => {
+const VideoList = ({video}) => {
+
   const imageUrl = video.snippet.thumbnails.default.url;
   const title = video.snippet.title;
   const description = video.snippet.description;
+  const videoId = video.id.videoId;
+  const url = `https://www.youtube.com/embed/${videoId}`;
 
-  console.log(video);
   return (
     <List.Item>
       <Image src={imageUrl} />
       <List.Content style={{ 'position': 'absolute', 'width': '40em' }}>
-        <List.Header as='a'>{title}</List.Header>
+        <List.Header as='a' href={url}>{title}</List.Header>
         <List.Description>{description}</List.Description>
       </List.Content>
     </List.Item>
   )
 };
 
-export default VideoListItem;
+export default VideoList;
