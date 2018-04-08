@@ -7,7 +7,7 @@ const videoItems = props.videos.map((video) => {
     return <VideoListItem key={video.etag} video={video} />
   })
   return (
-    <List>
+    <List divided verticalAlign='middle'>
       {videoItems}
     </List>
   );
