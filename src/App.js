@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
-import { Container } from 'semantic-ui-react';
+import { Container, Grid } from 'semantic-ui-react';
 import './App.css';
 
 import SearchBar from './components/search_bar';
@@ -27,14 +27,16 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Container>
-          <SearchBar />
-          <VideoDetail video={this.state.selectedVideo} />
-          <VideoList
-            onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
-            videos={this.state.videos}
-          />
-        </Container>
+        <Grid>
+          <Container>
+            <SearchBar className="centered"/>
+            <VideoDetail video={this.state.selectedVideo} />
+            <VideoList
+              onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
+              videos={this.state.videos}
+            />
+          </Container>
+        </Grid>
       </div>
     );
   }
