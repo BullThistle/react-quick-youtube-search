@@ -31,17 +31,19 @@ class App extends Component {
     const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
 
     return (
-      <div style={{ 'background-color': '#FAFAFA' }}>
-        <Grid>
-          <Container>
-            <SearchBar className="centered" onSearchTermChange={videoSearch} />
-            <VideoDetail video={this.state.selectedVideo} />
-            <VideoList
-              onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
-              videos={this.state.videos}
-            />
-          </Container>
-        </Grid>
+      <div>
+        <div style={{ 'background-color': '#FAFAFA' }}>
+          <Grid>
+            <Container>
+              <SearchBar onSearchTermChange={videoSearch} />
+              <VideoDetail video={this.state.selectedVideo} />
+              <VideoList
+                onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
+                videos={this.state.videos}
+              />
+            </Container>
+          </Grid>
+        </div>
       </div>
     );
   }
