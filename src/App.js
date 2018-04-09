@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
 import { Container, Grid } from 'semantic-ui-react';
@@ -28,11 +29,13 @@ class App extends Component {
   }
 
   render() {
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+
     return (
       <div>
         <Grid>
           <Container>
-            <SearchBar className="centered" onSearchTermChange={term => this.videoSearch(term)} />
+            <SearchBar className="centered" onSearchTermChange={videoSearch} />
             <VideoDetail video={this.state.selectedVideo} />
             <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
