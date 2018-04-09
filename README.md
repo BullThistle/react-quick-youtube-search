@@ -17,7 +17,7 @@ _Simple React web app to provide an even quicker way to find youtube videos_
   REACT_APP_YOUTUBE_API=*******************************
   ```
 
-  * To run local server
+* Run local server
   ```
   $ npm start
   ```
