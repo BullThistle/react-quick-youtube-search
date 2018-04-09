@@ -20,12 +20,17 @@ class SearchBar extends Component {
               'margin-bottom': '2em',
             }}
             value={this.state.term}
-            onChange={event => this.setState({ term: event.target.value })}
+            onChange={event => this.onInputChange(event.target.value)}
           />
           <Icon name='search' />
         </Input>
       </div>
     )
+  }
+
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
   }
 }
 

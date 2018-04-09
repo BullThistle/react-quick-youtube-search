@@ -15,8 +15,11 @@ class App extends Component {
       videos: [],
       selectedVideo: null
     };
+    this.videoSearch('dave smith pro-2');
+  }
 
-    YTSearch({key: process.env.REACT_APP_YOUTUBE_API, term: 'surfboards'}, (videos) => {
+  videoSearch(term) {
+      YTSearch({key: process.env.REACT_APP_YOUTUBE_API, term: term}, (videos) => {
       this.setState({
         videos: videos,
         selectedVideo: videos[0]
@@ -29,7 +32,7 @@ class App extends Component {
       <div>
         <Grid>
           <Container>
-            <SearchBar className="centered"/>
+            <SearchBar className="centered" onSearchTermChange={term => this.videoSearch(term)} />
             <VideoDetail video={this.state.selectedVideo} />
             <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
